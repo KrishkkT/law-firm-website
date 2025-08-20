@@ -48,7 +48,7 @@ npm install
 
 # Run development server
 npm run dev
-
+```
 ## 📞 Contact
 📧 Email: **infojtlaw@gmail.com**  
 🌐 Website: [jayminthakkerlaw.com](https://jayminthakkerlaw.com)  
