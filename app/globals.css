@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --gold: 36 100% 50%;
+    --gold-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --gold: 36 100% 50%;
+    --gold-foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-cormorant font-semibold;
+  }
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}
+
+/* Critical styling for above-the-fold content */
+.gold-gradient {
+  background: linear-gradient(90deg, #d4af37 0%, #f2d272 50%, #d4af37 100%);
+}
+
+.text-gold {
+  color: hsl(var(--gold));
+}
+
+.bg-gold {
+  background-color: hsl(var(--gold));
+  color: hsl(var(--gold-foreground));
+}
+
+.hero-overlay {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+}
+/* purgecss end ignore */
+
+/* Non-critical styles that can be loaded asynchronously */
+.practice-area-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.practice-area-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.divider-gold {
+  height: 3px;
+  width: 80px;
+  background: linear-gradient(90deg, #d4af37 0%, #f2d272 50%, #d4af37 100%);
+  margin: 1rem auto;
+}
+
+.divider-gold-left {
+  height: 3px;
+  width: 80px;
+  background: linear-gradient(90deg, #d4af37 0%, #f2d272 50%, #d4af37 100%);
+  margin: 1rem 0;
+}
+
+/* Optimize animations for performance */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-224px * 7));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.logo-carousel:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* Optimize logo hover effects */
+.logo-container {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  will-change: transform, filter;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Image optimization */
+.lazy-image {
+  transition: opacity 0.3s ease-in-out;
+  will-change: opacity;
+}
+
+.image-loading {
+  opacity: 0;
+}
+
+.image-loaded {
+  opacity: 1;
+}
+
+/* Optimize animations with will-change */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  will-change: opacity, transform;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-in-out forwards;
+  will-change: opacity, transform;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-in-out forwards;
+  will-change: opacity, transform;
+}
+
+.scale-up {
+  animation: scaleUp 0.5s ease-in-out forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Optimize hover effects */
+.hover-lift {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  will-change: transform, box-shadow;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Button animations */
+.button-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-animation::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.button-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Smooth scrolling for the entire site, but respect user preferences */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
