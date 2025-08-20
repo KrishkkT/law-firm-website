@@ -1,30 +1,54 @@
-# JT
+## 🌟 About the Project
+The website represents the official digital presence of **Jaymin Thakker Law Firm**, built with a focus on professionalism, accessibility, and modern web standards.  
+It showcases the firm’s services, values, and contact information while ensuring a **smooth, responsive, and secure browsing experience**.
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+---
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/kjt/v0-jt)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/sX0OYeGt0XM)
+## 🛠️ Tech Stack
+- **Language:** TypeScript, JavaScript (ES6+)  
+- **Frontend Framework:** React.js  
+- **Styling:** Tailwind CSS + custom CSS  
+- **Build Tool:** Vite  
+- **Deployment:** GitHub Pages / Cloud Hosting  
+- **Version Control:** Git & GitHub  
 
-## Overview
+---
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## 🚀 Features
+- ✅ Responsive design (optimized for desktop, tablet, mobile)  
+- ✅ Modern React-based components for clean structure  
+- ✅ Services & practice areas section  
+- ✅ Contact information and quick inquiry options  
+- ✅ SEO-friendly meta tags and optimized performance  
+- ✅ Secure and lightweight deployment  
 
-## Deployment
+---
 
-Your project is live at:
+## 📂 Repository Purpose
+This repository is maintained to:  
+1. Host and manage the official law firm website.  
+2. Serve as a **portfolio project** demonstrating practical React + TypeScript skills.  
+3. Track updates, new features, and future enhancements.  
 
-**[https://vercel.com/kjt/v0-jt](https://vercel.com/kjt/v0-jt)**
+---
 
-## Build your app
+## ⚡ Getting Started (Local Setup)
 
-Continue building your app on:
+Clone this repository and run the project locally:
 
-**[https://v0.app/chat/projects/sX0OYeGt0XM](https://v0.app/chat/projects/sX0OYeGt0XM)**
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/<repo-name>.git
 
-## How It Works
+# Navigate to the project
+cd <repo-name>
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+## 📞 Contact
+📧 Email: **infojtlaw@gmail.com**  
+🌐 Website: [jayminthakkerlaw.com](https://jayminthakkerlaw.com)  
