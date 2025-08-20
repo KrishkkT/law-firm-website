@@ -7,9 +7,8 @@ It showcases the firm’s services, values, and contact information while ensuri
 ## 🛠️ Tech Stack
 - **Language:** TypeScript, JavaScript (ES6+)  
 - **Frontend Framework:** React.js  
-- **Styling:** Tailwind CSS + custom CSS  
-- **Build Tool:** Vite  
-- **Deployment:** GitHub Pages / Cloud Hosting  
+- **Styling:** Tailwind CSS + custom CSS   
+- **Deployment:** Vercel with custom domain 
 - **Version Control:** Git & GitHub  
 
 ---
