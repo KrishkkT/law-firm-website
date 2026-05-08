@@ -3,13 +3,34 @@ import { Link } from 'react-router-dom';
 import { useStaggerChildren } from '../hooks/useScrollReveal';
 import { FAQS } from '../utils/constants';
 import { IoChevronDown, IoArrowForward } from 'react-icons/io5';
+import SEO from '../components/SEO';
 
 export default function FAQPage() {
   const [expandedId, setExpandedId] = useState(1);
   const ref = useStaggerChildren();
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <>
+      <SEO 
+        title="Frequently Asked Questions | Legal Guidance"
+        description="Find answers to common legal questions about personal injury, family law, business transactions, and more. Thakker & Associates provides clear legal insights."
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
       {/* Hero */}
       <section className="relative pt-32 pb-20 bg-light-surface dark:bg-dark-surface">
         <div className="max-w-7xl mx-auto px-6">

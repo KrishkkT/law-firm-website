@@ -123,9 +123,9 @@ export default function Footer() {
                 </p>
               </li>
               <li>
-                <a href={`tel:${FIRM_DATA.phone}`} className="text-light-bg/70 dark:text-dark-text-secondary hover:text-light-gold dark:hover:text-dark-gold text-sm transition-colors">
+                <Link to="/contact" className="text-light-bg/70 dark:text-dark-text-secondary hover:text-light-gold dark:hover:text-dark-gold text-sm transition-colors">
                   {FIRM_DATA.phone}
-                </a>
+                </Link>
               </li>
               <li>
                 <a href={`mailto:${FIRM_DATA.email}`} className="text-light-bg/70 dark:text-dark-text-secondary hover:text-light-gold dark:hover:text-dark-gold text-sm transition-colors break-all">

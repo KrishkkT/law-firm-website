@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { FIRM_DATA, SOCIAL_LINKS } from '../utils/constants';
 import { IoLogoLinkedin, IoLogoInstagram, IoLogoTwitter, IoCallOutline, IoMailOutline, IoLocationOutline, IoLogoWhatsapp, IoTimeOutline } from 'react-icons/io5';
+import SEO from '../components/SEO';
 
 export default function ContactPage() {
   const ref = useScrollReveal();
@@ -36,6 +37,10 @@ export default function ContactPage() {
 
   return (
     <>
+      <SEO 
+        title="Contact Us | Schedule a Legal Consultation"
+        description="Get in touch with Thakker & Associates. Visit our Bhavnagar office, call us, or send a message to discuss your legal needs with our expert attorneys."
+      />
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -97,9 +102,7 @@ export default function ContactPage() {
 
               {/* WhatsApp */}
               <a
-                href={`https://wa.me/${FIRM_DATA.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact-form"
                 className="inline-flex items-center gap-3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full transition-colors font-semibold text-sm"
               >
                 <IoLogoWhatsapp className="w-5 h-5" />
@@ -132,7 +135,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column - Form */}
-            <div className="lg:col-span-3">
+            <div id="contact-form" className="lg:col-span-3">
               <div className="bg-light-surface dark:bg-dark-surface rounded-2xl p-8 md:p-12 border border-light-gold/10 dark:border-dark-gold/10">
                 <h3 className=" text-3xl text-primary mb-2">Send Us a Message</h3>
                 <p className="text-secondary text-sm mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>

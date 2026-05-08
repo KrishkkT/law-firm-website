@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useStaggerChildren } from '../hooks/useScrollReveal';
 import { PRACTICE_AREAS } from '../utils/constants';
 import { IoArrowForward } from 'react-icons/io5';
+import SEO from '../components/SEO';
 
 const AREA_IMAGES = {
   'Personal Injury': '/car-accident-injury.png',
@@ -20,6 +21,10 @@ export default function PracticeAreasPage() {
 
   return (
     <>
+      <SEO 
+        title="Our Practice Areas | Specialized Legal Expertise"
+        description="Explore Thakker & Associates' legal expertise across 9 major practice areas including business law, family law, personal injury, and criminal defense in Gujarat."
+      />
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">

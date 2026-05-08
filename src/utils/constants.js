@@ -7,7 +7,7 @@ export const FIRM_DATA = {
   address: 'Kaveri Complex, Nawapara, Bhavnagar, Gujarat – 364001',
   phone: '+91-278-XXXX-XXXX',
   email: 'info@jtaw.in',
-  whatsapp: '+919898241082'
+  whatsapp: '+91-XXXXX-XXXXX'
 };
 
 export const PRACTICE_AREAS = [

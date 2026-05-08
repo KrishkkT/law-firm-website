@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useScrollReveal, useStaggerChildren } from '../../hooks/useScrollReveal';
 import { IoArrowForward, IoCheckmark } from 'react-icons/io5';
+import SEO from '../../components/SEO';
 
 export default function PracticeAreaLayout({
   title,
@@ -18,6 +19,10 @@ export default function PracticeAreaLayout({
 
   return (
     <>
+      <SEO 
+        title={`${title} Attorneys`}
+        description={description}
+      />
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">

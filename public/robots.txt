@@ -7,4 +7,4 @@ Disallow: /private/
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://jayminthakkerlaw.com/sitemap.xml
+Sitemap: https://jtaw.in/sitemap.xml

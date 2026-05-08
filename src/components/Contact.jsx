@@ -69,7 +69,7 @@ export default function Contact() {
                 <IoCallOutline className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-medium text-primary mb-1">Phone</h4>
-                  <a href={`tel:${FIRM_DATA.phone}`} className="text-secondary hover:text-accent transition-colors text-sm">
+                  <a href="#contact" className="text-secondary hover:text-accent transition-colors text-sm">
                     {FIRM_DATA.phone}
                   </a>
                 </div>
@@ -91,9 +91,7 @@ export default function Contact() {
 
             {/* WhatsApp CTA */}
             <a
-              href={`https://wa.me/${FIRM_DATA.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="inline-flex items-center gap-3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full transition-colors font-medium text-sm mt-6"
             >
               <IoLogoWhatsapp className="w-5 h-5" />

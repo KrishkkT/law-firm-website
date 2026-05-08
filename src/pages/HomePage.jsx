@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useScrollReveal, useStaggerChildren } from '../hooks/useScrollReveal';
-import { PRACTICE_AREAS, STATS, VALUES, REPRESENTED_COMPANIES } from '../utils/constants';
+import { PRACTICE_AREAS, STATS, VALUES, REPRESENTED_COMPANIES, TESTIMONIALS } from '../utils/constants';
 import { IoArrowForward, IoChevronBack, IoChevronForward, IoCheckmark } from 'react-icons/io5';
 import { useState, useEffect } from 'react';
 import GoogleReviews from '../components/GoogleReviews';
+import SEO from '../components/SEO';
 
 function HeroSection() {
   const ref = useScrollReveal();
@@ -322,11 +323,11 @@ function CTASection() {
               Schedule a Consultation
             </button>
           </Link>
-          <a href={`tel:+91-278-XXXX-XXXX`}>
+          <Link to="/contact">
             <button className="px-8 py-3.5 rounded-full border-2 border-white/40 text-white font-semibold transition-all hover:bg-white/10 tracking-wide">
               Call Us Now
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -367,6 +368,10 @@ function CompaniesRepresented() {
 export default function HomePage({ isDark }) {
   return (
     <>
+      <SEO 
+        title="Law Firm in Bhavnagar | Personal Injury & Family Law"
+        description="Thakker & Associates is a premier law firm in Bhavnagar, Gujarat. We specialize in personal injury, family law, business law, and civil litigation with over 20 years of excellence."
+      />
       <HeroSection />
       <CompaniesRepresented />
       <AboutPreview />
