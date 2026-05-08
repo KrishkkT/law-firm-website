@@ -18,7 +18,7 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch('https://formspree.io/f/mpwwojlg', {
         method: 'POST',
@@ -28,7 +28,7 @@ export default function ContactPage() {
         },
         body: JSON.stringify(formData)
       });
-      
+
       if (response.ok) {
         setSubmitted(true);
         setFormData({ name: '', email: '', phone: '', caseType: '', message: '' });
@@ -52,7 +52,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Contact Us | Schedule a Legal Consultation"
         description="Get in touch with Thakker & Associates. Visit our Bhavnagar office, call us, or send a message to discuss your legal needs with our expert attorneys."
       />
@@ -115,14 +115,15 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* WhatsApp */}
+              {/* WhatsApp
               <a
-                href="#contact-form"
+                href={`https://wa.me/${FIRM_DATA.whatsapp.replace(/[^0-9]/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full transition-colors font-semibold text-sm"
               >
-                <IoLogoWhatsapp className="w-5 h-5" />
-                Chat on WhatsApp
-              </a>
+                wa.me/{FIRM_DATA.whatsapp.replace(/[^0-9X]/g, '')}
+              </a> */}
 
               {/* Social
               <div className="pt-6 border-t border-light-gold/15 dark:border-dark-gold/15">

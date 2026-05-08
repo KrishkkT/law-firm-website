@@ -20,7 +20,7 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch('https://formspree.io/f/mpwwojlg', {
         method: 'POST',
@@ -30,7 +30,7 @@ export default function Contact() {
         },
         body: JSON.stringify(formData)
       });
-      
+
       if (response.ok) {
         alert('Thank you for your inquiry. We will contact you shortly.');
         setFormData({ name: '', email: '', phone: '', caseType: '', message: '' });
@@ -105,14 +105,15 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* WhatsApp CTA */}
+            {/* WhatsApp CTA
             <a
-              href="#contact"
+              href={`https://wa.me/${FIRM_DATA.whatsapp.replace(/[^0-9]/g, '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full transition-colors font-medium text-sm mt-6"
             >
-              <IoLogoWhatsapp className="w-5 h-5" />
-              Chat on WhatsApp
-            </a>
+              wa.me/{FIRM_DATA.whatsapp.replace(/[^0-9X]/g, '')}
+            </a> */}
 
             {/* Social Links */}
             <div className="pt-8 border-t border-light-gold/15 dark:border-dark-gold/15">
