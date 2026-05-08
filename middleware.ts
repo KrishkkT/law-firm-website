@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
+// List of supported language paths
+const LANGUAGE_PATHS = ["/gujarati", "/hindi", "/marathi", "/spanish", "/french", "/german"]
+
 export function middleware(request: NextRequest) {
   try {
     // Clone the request headers
@@ -13,6 +16,16 @@ export function middleware(request: NextRequest) {
     // Add device type header for server components
     requestHeaders.set("x-device-type", isMobile ? "mobile" : "desktop")
 
+    // Check if the path starts with a language prefix
+    const { pathname } = request.nextUrl
+    const languagePath = LANGUAGE_PATHS.find((path) => pathname.startsWith(path))
+
+    if (languagePath) {
+      // Add language header for server components
+      const language = languagePath.substring(1) // Remove the leading slash
+      requestHeaders.set("x-language", language)
+    }
+
     // Get response
     const response = NextResponse.next({
       request: {
@@ -23,7 +36,7 @@ export function middleware(request: NextRequest) {
     // Security Headers - with more permissive CSP
     const securityHeaders = {
       "Content-Security-Policy":
-        "default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io https://*.google.com https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://*.google.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.googletagmanager.com https://*.googleapis.com; frame-src 'self' https://*.google.com https://*.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests; block-all-mixed-content;",
+        "default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io https://*.google.com https://*.googleapis.com https://*.gstatic.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://*.google.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.googletagmanager.com https://*.googleapis.com; frame-src 'self' https://*.google.com https://*.youtube.com https://*.translate.goog; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests; block-all-mixed-content;",
       "X-DNS-Prefetch-Control": "on",
       "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
       "X-XSS-Protection": "1; mode=block",

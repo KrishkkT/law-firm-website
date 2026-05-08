@@ -10,6 +10,7 @@ import { ScriptOptimizer } from "@/components/script-optimizer"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { ResourceHints } from "@/components/resource-hints"
+import { LanguageProvider } from "@/contexts/language-context"
 
 export default function AppProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -177,20 +178,22 @@ export default function AppProvider({ children }: { children: React.ReactNode })
   }, [])
 
   return (
-    <CookieConsentProvider>
-      {/* Performance optimizers - only run on client */}
-      {isMounted && (
-        <>
-          <ResourcePreload resources={allResources} />
-          <CriticalCssExtractor />
-          <ScriptOptimizer />
-          <ResourceHints />
-        </>
-      )}
+    <LanguageProvider>
+      <CookieConsentProvider>
+        {/* Performance optimizers - only run on client */}
+        {isMounted && (
+          <>
+            <ResourcePreload resources={allResources} />
+            <CriticalCssExtractor />
+            <ScriptOptimizer />
+            <ResourceHints />
+          </>
+        )}
 
-      {children}
-      <CookieConsentBanner />
-      {isMounted && <ServiceWorkerRegistration />}
-    </CookieConsentProvider>
+        {children}
+        <CookieConsentBanner />
+        {isMounted && <ServiceWorkerRegistration />}
+      </CookieConsentProvider>
+    </LanguageProvider>
   )
 }

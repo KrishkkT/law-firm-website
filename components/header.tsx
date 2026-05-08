@@ -2,9 +2,9 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
 import SafeImage from "./safe-image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -26,16 +26,131 @@ const navigationLinks = [
   { label: "Contact", href: "/contact" },
 ]
 
+const languageOptions = [
+  {
+    code: "en",
+    name: "English",
+    path: "",
+    translationUrl: "",
+  },
+  {
+    code: "gu",
+    name: "Gujarati",
+    path: "/gujarati",
+    translationUrl:
+      "https://jayminthakkerlaw-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=gu&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true",
+  },
+  {
+    code: "hi",
+    name: "Hindi",
+    path: "/hindi",
+    translationUrl:
+      "https://jayminthakkerlaw-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=hi&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true",
+  },
+  {
+    code: "mr",
+    name: "Marathi",
+    path: "/marathi",
+    translationUrl:
+      "https://jayminthakkerlaw-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=mr&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true",
+  },
+  {
+    code: "es",
+    name: "Spanish",
+    path: "/spanish",
+    translationUrl:
+      "https://jayminthakkerlaw-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true",
+  },
+  {
+    code: "fr",
+    name: "French",
+    path: "/french",
+    translationUrl:
+      "https://jayminthakkerlaw-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=fr&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true",
+  },
+  {
+    code: "de",
+    name: "German",
+    path: "/german",
+    translationUrl:
+      "https://jayminthakkerlaw-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=de&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true",
+  },
+]
+
+// Create a simple language context for the header component
+function useSimpleLanguage() {
+  const [currentLanguage, setCurrentLanguage] = useState(languageOptions[0])
+  const [isTranslationFrameVisible, setIsTranslationFrameVisible] = useState(false)
+  const [translationUrl, setTranslationUrl] = useState("")
+
+  const changeLanguage = (languageCode: string) => {
+    const language = languageOptions.find((lang) => lang.code === languageCode)
+    if (!language) return
+
+    setCurrentLanguage(language)
+
+    if (language.code === "en") {
+      setIsTranslationFrameVisible(false)
+      // Navigate to English version
+      window.location.href = "/"
+    } else {
+      // Update URL and show translation
+      const currentPath = window.location.pathname.replace(/^\/(gujarati|hindi|marathi|spanish|french|german)/, "")
+      const newPath = `${language.path}${currentPath}`
+      window.history.pushState({}, "", newPath)
+
+      setTranslationUrl(language.translationUrl)
+      setIsTranslationFrameVisible(true)
+    }
+  }
+
+  const closeTranslationFrame = () => {
+    setIsTranslationFrameVisible(false)
+    setCurrentLanguage(languageOptions[0])
+    window.location.href = "/"
+  }
+
+  return {
+    currentLanguage,
+    languages: languageOptions,
+    changeLanguage,
+    isTranslationFrameVisible,
+    translationUrl,
+    closeTranslationFrame,
+  }
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
   const [isMounted, setIsMounted] = useState(false)
+  const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false)
+  const { currentLanguage, languages, changeLanguage } = useSimpleLanguage()
 
-  // Only run animations after component is mounted to avoid hydration issues
+  // Add a ref for the language dropdown to handle outside clicks
+  const languageDropdownRef = useRef<HTMLDivElement>(null)
+
+  // Add this useEffect to handle outside clicks for the language dropdown
   useEffect(() => {
-    setIsMounted(true)
+    function handleClickOutside(event: MouseEvent) {
+      if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
+        setLanguageDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
   }, [])
+
+  // Add a function to handle language selection
+  const handleLanguageSelect = (languageCode: string, e: React.MouseEvent) => {
+    e.preventDefault()
+    changeLanguage(languageCode)
+    setLanguageDropdownOpen(false)
+  }
 
   useEffect(() => {
     // Use requestAnimationFrame for smoother scroll handling
@@ -63,12 +178,10 @@ export default function Header() {
     scrollToTop()
   }
 
-  // Simplified motion settings for mobile
-  const motionProps = {
-    initial: { opacity: 0, y: -10 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.3 },
-  }
+  // Only run animations after component is mounted to avoid hydration issues
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   return (
     <header
@@ -131,7 +244,7 @@ export default function Header() {
             <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-8">
+        <div className="hidden lg:flex lg:gap-x-8 items-center">
           {navigationLinks.map((item, index) =>
             isMounted ? (
               <motion.div
@@ -163,6 +276,55 @@ export default function Header() {
               </div>
             ),
           )}
+
+          {/* Language Dropdown */}
+          <div className="relative ml-4" ref={languageDropdownRef}>
+            <button
+              type="button"
+              className="flex items-center text-sm font-medium leading-6 text-foreground hover:text-gold transition-colors px-3 py-1 border border-gray-300 rounded-md"
+              onClick={() => setLanguageDropdownOpen(!languageDropdownOpen)}
+              aria-expanded={languageDropdownOpen}
+              aria-haspopup="true"
+            >
+              <Globe className="mr-2 h-4 w-4" />
+              <span>{currentLanguage.name}</span>
+              <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* Dropdown Menu */}
+            <AnimatePresence>
+              {languageDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-background ring-1 ring-black ring-opacity-5 z-50"
+                >
+                  <div className="py-1" role="menu" aria-orientation="vertical">
+                    {languages.map((language) => (
+                      <a
+                        key={language.code}
+                        href={language.path || "/"}
+                        className={cn(
+                          "block px-4 py-2 text-sm transition-colors",
+                          currentLanguage.code === language.code
+                            ? "bg-secondary text-gold font-medium"
+                            : "text-foreground hover:bg-secondary hover:text-gold",
+                        )}
+                        role="menuitem"
+                        onClick={(e) => handleLanguageSelect(language.code, e)}
+                      >
+                        {language.name}
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </nav>
 
@@ -226,6 +388,34 @@ export default function Header() {
                         </Link>
                       </div>
                     ))}
+
+                    {/* Language Options in Mobile Menu */}
+                    <div className="pt-4">
+                      <div className="px-3 text-base font-medium leading-7 text-foreground flex items-center">
+                        <Globe className="mr-2 h-4 w-4" />
+                        Language
+                      </div>
+                      <div className="mt-2 space-y-1">
+                        {languages.map((language) => (
+                          <a
+                            key={language.code}
+                            href={language.path || "/"}
+                            className={cn(
+                              "-mx-3 block rounded-lg px-6 py-1 text-sm font-medium leading-7 transition-colors",
+                              currentLanguage.code === language.code
+                                ? "bg-secondary text-gold"
+                                : "text-foreground hover:bg-secondary hover:text-gold",
+                            )}
+                            onClick={(e) => {
+                              handleLanguageSelect(language.code, e)
+                              setMobileMenuOpen(false)
+                            }}
+                          >
+                            {language.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
