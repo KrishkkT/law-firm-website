@@ -11,9 +11,9 @@ const AREA_IMAGES = {
   'Estate Planning': '/family-estate-planning.png',
   'Criminal Defence': '/criminal-defense-hero.jpg',
   'Real Estate Law': '/collaborative-real-estate-strategy.png',
-  'Civil Litigation': '/civil-law-hero.jpg',
-  'Consumer Law': '/consumer-law-hero.jpg',
-  'Revenue Law': '/revenue-law-hero.jpg',
+  'Civil Litigation': '/images/civil-law-negotiation.png',
+  'Consumer Law': '/consumer-protection-scales.png',
+  'Revenue Law': '/focused-legal-work.png',
 };
 
 export default function PracticeAreasPage() {

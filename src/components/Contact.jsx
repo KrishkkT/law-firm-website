@@ -18,12 +18,28 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry. We will contact you shortly.');
-    setFormData({ name: '', email: '', phone: '', caseType: '', message: '' });
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mpwwojlg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        alert('Thank you for your inquiry. We will contact you shortly.');
+        setFormData({ name: '', email: '', phone: '', caseType: '', message: '' });
+      } else {
+        alert('Oops! There was a problem submitting your form. Please try again.');
+      }
+    } catch (error) {
+      alert('Oops! There was a problem submitting your form. Please try again.');
+    }
   };
 
   const getSocialIcon = (platform) => {
@@ -134,7 +150,7 @@ export default function Contact() {
           </div>
 
           {/* Right Column - Contact Form (60%) */}
-          <form onSubmit={handleSubmit} className="md:col-span-3 space-y-6">
+          <form action="https://formspree.io/f/mpwwojlg" method="POST" onSubmit={handleSubmit} className="md:col-span-3 space-y-6">
             {/* Name */}
             <div>
               <label className="block text-xs uppercase tracking-widest text-accent font-medium mb-3">

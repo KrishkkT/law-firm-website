@@ -5,7 +5,7 @@ export default function CivilLitigationPage() {
     <PracticeAreaLayout
       title="Civil Litigation"
       subtitle="STRATEGIC ADVOCACY"
-      heroImage="/civil-law-hero.jpg"
+      heroImage="/images/civil-law-negotiation.png"
       description="Aggressive representation in civil disputes across all levels of courts, including breach of contract and commercial conflicts."
       contentImage="/images/civil-law-negotiation.png"
       detailedContent={{

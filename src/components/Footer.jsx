@@ -122,11 +122,11 @@ export default function Footer() {
                   {FIRM_DATA.address}
                 </p>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/contact" className="text-light-bg/70 dark:text-dark-text-secondary hover:text-light-gold dark:hover:text-dark-gold text-sm transition-colors">
                   {FIRM_DATA.phone}
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <a href={`mailto:${FIRM_DATA.email}`} className="text-light-bg/70 dark:text-dark-text-secondary hover:text-light-gold dark:hover:text-dark-gold text-sm transition-colors break-all">
                   {FIRM_DATA.email}

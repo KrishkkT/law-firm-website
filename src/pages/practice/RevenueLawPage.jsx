@@ -5,9 +5,9 @@ export default function RevenueLawPage() {
     <PracticeAreaLayout
       title="Revenue Law"
       subtitle="TAX & REVENUE EXPERTISE"
-      heroImage="/revenue-law-hero.jpg"
+      heroImage="/focused-legal-work.png"
       description="Expert guidance on tax matters, GST, and revenue-related disputes with strategic legal counsel."
-      contentImage="/tax-law-consultation.png"
+      contentImage="/focused-legal-work.png"
       detailedContent={{
         title: "Expert Revenue & Tax Law Services",
         paragraphs: [

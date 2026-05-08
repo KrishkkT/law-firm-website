@@ -5,7 +5,7 @@ export default function ConsumerLawPage() {
     <PracticeAreaLayout
       title="Consumer Law"
       subtitle="PROTECTING YOUR RIGHTS"
-      heroImage="/consumer-law-hero.jpg"
+      heroImage="/consumer-protection-scales.png"
       description="Protection of consumer rights and claims against unfair business practices with proven results."
       contentImage="/consumer-protection-scales.png"
       detailedContent={{
