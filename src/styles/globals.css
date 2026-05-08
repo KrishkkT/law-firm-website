@@ -1,0 +1,166 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Grain Texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='2' /%3E%3C/filter%3E%3Crect width='256' height='256' fill='%23F5F0E8' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dark mode grain */
+.dark body::before,
+body.dark::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='2' /%3E%3C/filter%3E%3Crect width='256' height='256' fill='%230F0E0C' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Component layer */
+@layer components {
+  .transition-smooth {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .text-primary {
+    @apply text-light-text dark:text-dark-text;
+  }
+
+  .text-secondary {
+    @apply text-light-text-secondary dark:text-dark-text-secondary;
+  }
+
+  .text-accent {
+    @apply text-light-gold dark:text-dark-gold;
+  }
+
+  .border-accent {
+    @apply border-light-gold/15 dark:border-dark-gold/15;
+  }
+
+  .bg-surface {
+    @apply bg-light-surface dark:bg-dark-surface;
+  }
+
+  .btn-gold {
+    @apply px-8 py-3.5 rounded-full bg-light-gold dark:bg-dark-gold text-white font-semibold transition-smooth hover:brightness-110 hover:shadow-lg hover:shadow-light-gold/25 dark:hover:shadow-dark-gold/25 tracking-wide;
+  }
+
+  .btn-ghost {
+    @apply px-8 py-3.5 rounded-full border-2 border-light-gold dark:border-dark-gold text-light-gold dark:text-dark-gold font-semibold transition-smooth hover:bg-light-gold/10 dark:hover:bg-dark-gold/10 tracking-wide;
+  }
+
+  .section-label {
+    @apply text-xs font-bold tracking-[0.2em] uppercase text-light-gold dark:text-dark-gold pl-4 border-l-2 border-light-gold dark:border-dark-gold;
+  }
+
+  .font-serif-light {
+    @apply font-serif font-light;
+  }
+
+  .glass-blur {
+    @apply backdrop-blur-xl bg-light-bg/85 dark:bg-dark-bg/90;
+  }
+
+  .page-hero {
+    @apply relative min-h-[60vh] flex items-center overflow-hidden;
+  }
+
+  .page-hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70;
+  }
+
+  .page-hero-image {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .practice-card {
+    @apply relative overflow-hidden rounded-2xl border border-light-gold/15 dark:border-dark-gold/15 bg-light-bg dark:bg-dark-surface hover:border-light-gold/40 dark:hover:border-dark-gold/40 transition-all duration-500 hover:shadow-2xl hover:shadow-light-gold/10 dark:hover:shadow-dark-gold/10 hover:-translate-y-1;
+  }
+}
+
+/* Logo Ticker Styles */
+.logo-ticker-container {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logo-slide {
+  display: inline-flex;
+  animation: 40s slide-left infinite linear;
+}
+
+@keyframes slide-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-bg dark:bg-dark-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-light-gold/40 dark:bg-dark-gold/40 rounded-full hover:bg-light-gold/60 dark:hover:bg-dark-gold/60;
+}
+
+/* z-index layering */
+button, input, textarea, select, main, section, nav, footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Font rendering */
+p, span, a, li, h1, h2, h3, h4, h5, h6, label, input, textarea, select, button {
+  text-rendering: optimizeLegibility;
+}
+
+/* Image transitions */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(184, 151, 42, 0.3);
+  color: inherit;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #B8972A;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
