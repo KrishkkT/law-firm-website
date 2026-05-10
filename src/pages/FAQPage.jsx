@@ -25,8 +25,8 @@ export default function FAQPage() {
   return (
     <>
       <SEO 
-        title="Frequently Asked Questions | Legal Guidance"
-        description="Find answers to common legal questions about personal injury, family law, business transactions, and more. Thakker & Associates provides clear legal insights."
+        title="Common Legal Questions & Expert Guidance | Bhavnagar Law Firm"
+        description="Get answers to frequent legal doubts regarding personal injury, property disputes, family law, and more in Bhavnagar, Gujarat. Honest guidance from Thakker & Associates."
       />
       <script type="application/ld+json">
         {JSON.stringify(faqSchema)}

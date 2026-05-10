@@ -30,6 +30,13 @@ export default function ContactPage() {
       });
 
       if (response.ok) {
+        // Google Ads Conversion Tracking
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-11544038291/kD14COegq4EaEJOX0IAr'
+          });
+        }
+        
         setSubmitted(true);
         setFormData({ name: '', email: '', phone: '', caseType: '', message: '' });
         setTimeout(() => setSubmitted(false), 5000);

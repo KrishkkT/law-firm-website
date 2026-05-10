@@ -6,7 +6,7 @@ export const FIRM_DATA = {
   taglineSubtitle: 'Providing exceptional legal services with integrity, dedication, and expertise since 2005',
   address: 'Kaveri Complex, Nawapara, Bhavnagar, Gujarat – 364001',
   phone: '+91-278-XXXX-XXXX',
-  email: 'info@jtaw.in',
+  email: 'info@jtlaw.in',
   whatsapp: '+91-XXXXX-XXXXX'
 };
 
@@ -214,43 +214,58 @@ export const BUSINESS_LAW_SERVICES = [
 export const FAQS = [
   {
     id: 1,
-    question: 'How do I schedule a consultation with Thakker & Associates?',
-    answer: 'You can schedule a consultation by visiting our Contact page, calling us directly, or sending an email. Our team typically responds within 24 hours to arrange a time that works best for you.'
+    question: 'How much does a legal consultation cost at Thakker & Associates?',
+    answer: 'We believe in transparent pricing. We often provide a preliminary evaluation to understand the merits of your case. For detailed strategy sessions, our fees vary depending on the complexity of the matter. We suggest scheduling an initial talk to get a clear fee estimate tailored to your specific situation.'
   },
   {
     id: 2,
-    question: 'What is your consultation fee?',
-    answer: 'We offer a free initial consultation to discuss your legal matter and assess how we can help. After the initial consultation, we will provide you with a transparent fee structure based on your specific needs.'
+    question: 'I have been in an accident; what is the first step I should take legally?',
+    answer: 'Safety and medical attention are always the priority. Legally, it is suggested to document the scene with photos, gather witness contact details, and avoid making detailed statements to insurance adjusters before speaking with a lawyer. For specific guidance on filing a claim and protecting your rights, we recommend a formal consultation.'
   },
   {
     id: 3,
-    question: 'What practice areas do you specialize in?',
-    answer: 'We specialize in 9 major practice areas: Personal Injury, Family Law, Business Law, Estate Planning, Criminal Defence, Real Estate Law, Civil Litigation, Consumer Law, and Revenue Law. Each area has dedicated experts.'
+    question: 'How long does a typical property dispute or civil case take in Gujarat courts?',
+    answer: 'Timeline expectations vary based on the court\'s roster and the case complexity. While some matters can be resolved in months through mediation or settlement, contested litigations may take longer. We generally suggest exploring Alternative Dispute Resolution (ADR) to save time. Consult with us for a more realistic timeline based on your specific case facts.'
   },
   {
     id: 4,
-    question: 'Do you handle cases outside of Gujarat?',
-    answer: 'While we are based in Bhavnagar, Gujarat, we have successfully represented clients across Gujarat and India. We work with qualified legal professionals in other jurisdictions when necessary.'
+    question: 'Can I resolve my divorce or family matter through mutual consent to save time?',
+    answer: 'Mutual consent is often the most efficient path for family matters, provided both parties agree on terms like alimony, child custody, and asset division. We suggest attempting professional mediation as a first step. However, every family dynamic is unique, so it is best to consult with our family law experts to ensure your interests are legally protected during the process.'
   },
   {
     id: 5,
-    question: 'What should I bring to my first consultation?',
-    answer: 'Please bring any relevant documents related to your case, including contracts, correspondence, court documents, or other evidence. The more information you provide, the better we can assess your situation.'
+    question: 'What if I cannot afford the full legal fees for my case upfront?',
+    answer: 'We understand that legal challenges often come at difficult times. Depending on the type of case (such as personal injury), we may offer flexible payment structures or contingency-based arrangements. We suggest discussing your financial constraints openly during our first meeting so we can find a feasible way to represent you.'
   },
   {
     id: 6,
-    question: 'How long does a typical case take?',
-    answer: 'The duration of a case varies significantly depending on complexity, court schedules, and whether settlement is reached. We will provide you with realistic timelines based on your specific legal matter.'
+    question: 'Do I need to be physically present in court for every single hearing?',
+    answer: 'Not necessarily. Many procedural hearings can be handled by your legal counsel without your presence. However, your attendance is usually required during evidence recording and final arguments. With the rise of virtual courts in India, some appearances can even be digital. We suggest discussing the expected schedule with your assigned lawyer to plan accordingly.'
   },
   {
     id: 7,
-    question: 'Do you offer payment plans?',
-    answer: 'Yes, we work with clients to establish flexible payment arrangements based on their financial situation. We believe quality legal representation should be accessible.'
+    question: 'How do I verify if a property in Bhavnagar has a clear title before I buy it?',
+    answer: 'Title verification involves checking the Index II, search reports for the last 30 years, and ensuring no pending litigations exist. We suggest getting a formal Title Clearance Certificate from a legal expert before making any payments. To conduct a thorough verification of property documents, please consult our real estate team.'
   },
   {
     id: 8,
-    question: 'What makes Thakker & Associates different from other law firms?',
-    answer: 'We combine extensive legal expertise with a client-centered approach. We prioritize transparent communication, personalized attention, and delivering proven results for every client we represent.'
+    question: 'What are the chances of winning a case against a large company or insurance firm?',
+    answer: 'Large entities have significant resources, but the law remains the same for everyone. Success depends on the strength of your evidence and legal strategy. We suggest meticulous documentation and a proactive approach. To assess the specific strengths and weaknesses of your claim against a corporate entity, we recommend a detailed case review with us.'
+  },
+  {
+    id: 9,
+    question: 'Can I change my lawyer in the middle of an ongoing case if I am not satisfied?',
+    answer: 'Yes, you have the legal right to change your counsel at any stage. You will typically need a "No Objection Certificate" (NOC) from your current lawyer or seek court permission. We suggest first trying to resolve any communication gaps with your current attorney. If you are considering a transition, consult with us to understand how to protect your case during the switch.'
+  },
+  {
+    id: 10,
+    question: 'What is the difference between a civil case and a criminal case in simple terms?',
+    answer: 'Broadly, civil cases involve disputes between individuals or organizations (like property or contracts) where the goal is usually compensation. Criminal cases involve acts against the state (like theft or assault) where the goal is punishment or reform. We suggest determining which category your grievance falls into early on. Consult with us for a precise legal classification of your situation.'
+  },
+  {
+    id: 11,
+    question: 'How does the firm ensure my confidential information and documents stay secure?',
+    answer: 'Attorney-client privilege is a cornerstone of our practice. We use secure physical and digital filing systems to protect your data. We suggest never sharing sensitive case details over public networks. For more information on our data protection protocols, please speak with our administrative team during your visit.'
   }
 ];
 
@@ -284,7 +299,7 @@ export const PRIVACY_POLICY = {
     },
     {
       title: 'Contact Us',
-      content: 'If you have questions about this privacy policy, please contact us at info@jtaw.in or call us at your earliest convenience.'
+      content: 'If you have questions about this privacy policy, please contact us at info@jtlaw.in or call us at your earliest convenience.'
     }
   ]
 };

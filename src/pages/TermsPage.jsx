@@ -55,7 +55,7 @@ export default function TermsPage() {
           <div>
             <h2 className=" text-2xl text-primary font-medium mb-3">Contact</h2>
             <p className="text-secondary leading-relaxed">
-              For questions about these Terms of Service, please contact us at info@jtaw.in.
+              For questions about these Terms of Service, please contact us at info@jtlaw.inn.
             </p>
           </div>
           <div className="pt-12 border-t border-light-gold/15 dark:border-dark-gold/15">

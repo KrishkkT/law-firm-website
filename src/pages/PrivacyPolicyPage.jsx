@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
           </div>
           <div className="mt-16 pt-12 border-t border-light-gold/15 dark:border-dark-gold/15">
             <p className="text-xs text-secondary leading-relaxed">
-              This Privacy Policy describes how Thakker & Associates collects, uses, and protects your personal information. If you have any questions, please contact us at info@jtaw.in.
+              This Privacy Policy describes how Thakker & Associates collects, uses, and protects your personal information. If you have any questions, please contact us at info@jtlaw.in.
             </p>
           </div>
         </div>
