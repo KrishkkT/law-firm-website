@@ -3,11 +3,17 @@ import { useStaggerChildren } from '../hooks/useScrollReveal';
 import { TEAM } from '../utils/constants';
 import { IoArrowForward } from 'react-icons/io5';
 
+import SEO from '../components/SEO';
+
 export default function TeamPage() {
   const ref = useStaggerChildren();
 
   return (
     <>
+      <SEO 
+        title="Meet Our Attorneys | Expert Legal Team"
+        description="Meet the experienced attorneys at Thakker & Associates. Led by founder Jaymin Thakker, our team provides strategic legal representation in Bhavnagar."
+      />
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">

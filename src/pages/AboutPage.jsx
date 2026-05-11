@@ -3,6 +3,8 @@ import { useScrollReveal, useStaggerChildren } from '../hooks/useScrollReveal';
 import { VALUES, STATS, PROCESS_STEPS } from '../utils/constants';
 import { IoArrowForward } from 'react-icons/io5';
 
+import SEO from '../components/SEO';
+
 export default function AboutPage() {
   const heroRef = useScrollReveal();
   const valuesRef = useStaggerChildren();
@@ -10,6 +12,10 @@ export default function AboutPage() {
 
   return (
     <>
+      <SEO 
+        title="About Our Firm | 20+ Years of Legal Excellence"
+        description="Learn about Thakker & Associates' history, values, and commitment to justice in Bhavnagar, Gujarat. Providing expert legal counsel since 2005."
+      />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
